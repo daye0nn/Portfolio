@@ -1,10 +1,11 @@
 import React from "react";
 import styled, { keyframes } from "styled-components";
 import Profile from "./Profile";
+import Skill from "./Skill";
 import Project from "./Project";
+import Footer from "./Footer";
 
 const Container = styled.div`
-  background: var(--dark-color);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -13,9 +14,13 @@ const Container = styled.div`
 `;
 
 const Title = styled.div`
-  color: var(--light-color);
+  width: 100%;
+  text-align: center;
+  color: var(--dark-color);
   text-transform: uppercase;
-  font-size: 25rem;
+  font-size: 26rem;
+  position: absolute;
+  top: 20%;
 `;
 
 const float = keyframes`
@@ -25,6 +30,10 @@ const float = keyframes`
 `;
 
 const ImgeWrapper = styled.div`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%);
   img {
     width: 300px;
     object-fit: cover;
@@ -33,7 +42,14 @@ const ImgeWrapper = styled.div`
 `;
 
 const Text = styled.div`
-  color: var(--light-color);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  font-size: 2.6rem;
+  padding: 0 20px;
+  position: absolute;
+  bottom: 0;
+  margin-bottom: 30px;
 `;
 
 const Cover = () => {
@@ -45,15 +61,14 @@ const Cover = () => {
           <img src="/object.png" alt="" />
         </ImgeWrapper>
         <Text>
-          <p>
-            FrontEnd Developer
-            <br />
-            CHOI Da Yeon
-          </p>
+          <p>FrontEnd Developer</p>
+          <p> CHOI Da Yeon</p>
         </Text>
       </Container>
       <Profile />
+      <Skill />
       <Project />
+      <Footer />
     </>
   );
 };

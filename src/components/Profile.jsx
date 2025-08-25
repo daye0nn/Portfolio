@@ -4,6 +4,7 @@ const Container = styled.div`
   width: 100%;
   /* display: flex; */
   height: 100vh;
+  background: #f0f0f0;
   h4 {
     font-size: 4rem;
     font-weight: 500;
@@ -76,9 +77,14 @@ const Profile = () => {
             <h5>Education</h5>
             <p>2020.02 광남고등학교 졸업</p>
             <p>2020.03 ~ 2023.02 동서울대학교 정보통신과 졸업</p>
-            <p>2023.03 ~ 2024.02 동서울대학교 ICT융합학과 졸업</p>
+            <p>2023.03 ~ 2024.02 동서울대학교 ICT융합학과(학사학위) 졸업</p>
             <p>
-              2024.12 ~ 2025.06 UX/UI디자인 웹 프론트엔드개발 부트캠프 과정 수료
+              2024.07.03 ~ 2024.07.30 AWS 리눅스 기반 클라우드 데브옵스 기초
+              실무 과정 수료
+            </p>
+            <p>
+              2024.12.19 ~ 2025.06.25 UX/UI디자인 웹 프론트엔드개발 부트캠프
+              과정 수료
             </p>
           </Education>
           <Certification>
