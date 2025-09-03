@@ -17,8 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const ImgWrap = styled.div`
-  border: 1px solid #f00;
-  width: 20%;
+  width: 250px;
 `;
 
 const Img = styled.div`
@@ -35,7 +34,6 @@ const Info = styled.div``;
 
 const Textwrap = styled.div`
   width: 80%;
-  border: 1px solid #f00;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -79,12 +77,11 @@ const Profile = () => {
             <p>2020.03 ~ 2023.02 동서울대학교 정보통신과 졸업</p>
             <p>2023.03 ~ 2024.02 동서울대학교 ICT융합학과(학사학위) 졸업</p>
             <p>
-              2024.07.03 ~ 2024.07.30 AWS 리눅스 기반 클라우드 데브옵스 기초
-              실무 과정 수료
+              2024.07 ~ 2024.07 AWS 리눅스 기반 클라우드 데브옵스 기초 실무 과정
+              수료
             </p>
             <p>
-              2024.12.19 ~ 2025.06.25 UX/UI디자인 웹 프론트엔드개발 부트캠프
-              과정 수료
+              2024.12 ~ 2025.06 UX/UI디자인 웹 프론트엔드개발 부트캠프 과정 수료
             </p>
           </Education>
           <Certification>

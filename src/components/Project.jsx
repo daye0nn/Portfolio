@@ -49,8 +49,8 @@ const Card = styled.div`
 `;
 
 const Item = styled.div`
-  width: 500px;
-  height: 350px;
+  width: 600px;
+  height: 400px;
   border-radius: 20px;
   overflow: hidden;
   position: relative;
@@ -199,8 +199,15 @@ const Project = () => {
                 <img src="/img/js-icon.png" alt="js" />
               </Icon>
               <Link>
-                <a href="https://github.com/Myeongkwan72/NongDam">Github</a>
-                <a href="https://nongdam.netlify.app/index.html">Site</a>
+                <a href="https://github.com/daye0nn/NongDam" target="_blank">
+                  Github
+                </a>
+                <a
+                  href="https://nongdam.netlify.app/index.html"
+                  target="_blank"
+                >
+                  Site
+                </a>
               </Link>
             </Info>
           </Item>
@@ -227,8 +234,15 @@ const Project = () => {
                 <img src="/img/firebase-icon.png" alt="firebase" />
               </Icon>
               <Link>
-                <a href="https://github.com/dongho9/ZIP.">Github</a>
-                <a href="https://zip-project-ddd42.firebaseapp.com/">Site</a>
+                <a href="https://github.com/daye0nn/ZIP." target="_blank">
+                  Github
+                </a>
+                <a
+                  href="https://zip-project-ddd42.firebaseapp.com/"
+                  target="_blank"
+                >
+                  Site
+                </a>
               </Link>
             </Info>
           </Item>

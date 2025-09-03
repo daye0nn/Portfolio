@@ -20,6 +20,7 @@ const Globalstyles = createGlobalStyle`
   :root {
     --dark-color: #000;
     --light-color: #fff;
+    --sub-color: #858585;
   }
 
   html {
@@ -28,7 +29,7 @@ const Globalstyles = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
-    font-family: "Futura", sans-serif;
+    font-family: "Avenir","Pretendard", sans-serif;
   }
 
   @font-face {
@@ -48,9 +49,15 @@ const Globalstyles = createGlobalStyle`
 }
 
   @font-face {
-  font-family: "Futura";
-  src: url("./assets/fonts/FuturaCyrillicBold.ttf") format("truetype");
-  font-weight: normal;
+  font-family: "Avenir";
+  src: url("./assets/fonts/Avenir Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+  @font-face {
+  font-family: "Avenir";
+  src: url("./assets/fonts/Avenir Heavy.ttf") format("truetype");
+  font-weight: 700;
   font-style: normal;
 }
 `;

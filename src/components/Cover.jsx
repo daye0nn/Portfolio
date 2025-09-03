@@ -18,7 +18,7 @@ const Title = styled.div`
   text-align: center;
   color: var(--dark-color);
   text-transform: uppercase;
-  font-size: 26rem;
+  font-size: 30rem;
   position: absolute;
   top: 20%;
 `;
