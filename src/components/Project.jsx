@@ -1,100 +1,91 @@
-import { useEffect, useRef } from "react";
+import { useEffect } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
+import projectData from "../data/projectData";
 
-const Container = styled.div`
+gsap.registerPlugin(ScrollTrigger);
+
+const Container = styled.section`
   position: relative;
   width: 100%;
-  height: 100vh;
-  background: #191919;
-  color: var(--light-color);
-  border-radius: 30px;
-  overflow: hidden;
-`;
-
-const Title = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 100px;
-  margin-top: 100px;
-  margin-left: 60px;
-  h4 {
-    font-size: 4rem;
-  }
-  p {
-    font-size: 2rem;
-  }
-`;
-
-const Horizontal = styled.div`
-  position: absolute;
-  left: 0;
-  bottom: 80px;
-  display: flex;
-  width: max-content;
-  gap: 60px;
-  /* padding-right: 60px; */
-  padding: 0 60px;
+  padding-bottom: 80vh;
 `;
 
 const Card = styled.div`
+  width: 100%;
+  height: 600px;
+  margin-bottom: 50px;
+  border-radius: 10px;
+  color: #f5f5f5;
+  /* background-color: #b5b5ba; */
+  background-color: #121212;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  h4 {
-    font-size: 2rem;
-    margin-left: 10px;
-  }
-`;
-
-const Item = styled.div`
-  width: 600px;
-  height: 400px;
-  border-radius: 20px;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
   overflow: hidden;
-  position: relative;
-  cursor: pointer;
+  .mask {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: absolute;
+  }
   img {
     width: 100%;
     height: 100%;
-    border-radius: 20px;
     object-fit: cover;
-    transition: transform 0.3s;
+    object-position: top;
   }
-  &:hover img {
-    transform: scale(1.1);
-  }
-  &:hover div {
-    /* transform: translateY(0); */
-    opacity: 1;
-  }
+`;
+
+const Type = styled.h3`
+  position: absolute;
+  top: 4%;
+  left: 4%;
+  font-size: 3rem;
+  color: #888;
+  font-style: italic;
+`;
+
+const Wrapper = styled.div`
+  display: flex;
+  width: 60%;
+  height: 100%;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 `;
 
 const Info = styled.div`
   width: 100%;
-  height: 100%;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  background: rgba(0, 0, 0, 0.8);
-  opacity: 0;
-  /* transform: translateY(100%); */
+  padding: 4rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: 40px;
-  gap: 15px;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-  p {
-    line-height: 1.6;
+  gap: 2rem;
+  h4 {
+    font-size: 8rem;
+    font-weight: bold;
   }
-  span {
-    padding: 10px;
-    border-radius: 10px;
-    background: rgba(0, 0, 0, 0.6);
-    font-size: 1.4rem;
+  p {
+    word-break: keep-all;
+    white-space: normal;
+    line-height: 1.4;
+  }
+`;
+
+const Skills = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  color: var(--sub-text);
+  p {
+    white-space: nowrap;
   }
 `;
 
@@ -102,153 +93,129 @@ const Icon = styled.div`
   display: flex;
   gap: 10px;
   img {
-    width: 40px;
-    height: 40px;
+    width: 60px;
+    height: 60px;
     /* aspect-ratio: 1; */
     object-fit: cover;
     border-radius: 10px;
-    box-shadow: 0 0 20px rgba(0, 0, 0, 0.8);
+    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); */
   }
 `;
 
 const Link = styled.div`
-  width: 100%;
   display: flex;
-  justify-content: space-around;
+  gap: 20px;
   a {
+    display: flex;
+    align-items: center;
+    font-weight: 100;
+    gap: 0.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(16, 18, 20, 0.25);
+    backdrop-filter: blur(20px);
+    padding: 10px;
+    border-radius: 10px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    svg {
+      transform: rotate(-45deg);
+      display: inline-block;
+    }
     &:hover {
-      text-decoration: underline;
+      background: #fff;
+      color: #000;
     }
   }
 `;
 
-// gsap 가로 스크롤
-gsap.registerPlugin(ScrollTrigger);
+const ImgWrap = styled.div`
+  width: 60%;
+  height: 100%;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  img {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 0 10px 10px 0;
+  }
+`;
+
+const Container2 = styled.div`
+  height: 80vh;
+`;
 
 const Project = () => {
-  const sectionRef = useRef(null); // useRef로 참조할 요소
-  const containerRef = useRef(null);
-
   useEffect(() => {
-    const section = sectionRef.current;
-    const container = containerRef.current;
+    const cards = gsap.utils.toArray(".card");
+    const lastCard = cards[cards.length - 1];
 
-    const scrollWidth = section.scrollWidth;
-    const windowWidth = window.innerWidth;
-
-    const scroll = scrollWidth - windowWidth;
-
-    const ctx = gsap.context(() => {
-      gsap.to(section, {
-        x: -scroll,
+    cards.forEach((card, index) => {
+      // scale 애니메이션
+      gsap.to(card, {
+        scrollTrigger: {
+          trigger: card,
+          start: () => `top bottom-=100`,
+          end: () => `top top+=40`,
+          scrub: true,
+          invalidateOnRefresh: true,
+        },
         ease: "none",
-        scrollTrigger: {
-          trigger: container,
-          start: "top top",
-          end: `+=${scroll}`,
-          scrub: 1,
-          pin: true,
-          anticipatePin: 1,
-        },
+        scale: 1 - (cards.length - index) * 0.025,
+        // backgroundColor: "#87878A",
+        backgroundColor: "#1e1e1e",
       });
 
-      //카드 애니메이션
-      gsap.from(".card", {
-        y: 100, //아래에서 시작
-        opacity: 0,
-        stagger: 0.2, // 순차적으로 나타나는 간격
-        duration: 1,
-        ease: "power3.out", // easing 함수 => 빠르게 시작해서 부드럽게 감속하며 멈춤
-        scrollTrigger: {
-          trigger: container,
-          start: "top center",
-        },
+      // pin 고정
+      ScrollTrigger.create({
+        trigger: card,
+        start: "center center",
+        pin: true,
+        pinSpacing: false,
+        id: `pin-${index}`,
+        endTrigger: lastCard,
+        end: "bottom top",
+        invalidateOnRefresh: true,
       });
-    }, container);
-
-    return () => ctx.revert(); // 안전한 cleanup
+    });
   }, []);
 
   return (
-    <Container ref={containerRef}>
-      <Title>
-        <h4>Project</h4>
-        <p>개인 및 팀 프로젝트입니다.</p>
-      </Title>
-      <Horizontal ref={sectionRef}>
-        <Card className="card">
-          <h4>Music Player</h4>
-          <Item>
-            <img src="/img/musicplayer.JPG" alt="musicplayer" />
-          </Item>
-        </Card>
-        <Card className="card">
-          <h4>농담</h4>
-          <Item>
-            <img src="/img/nongdam.JPG" alt="nongdam" />
-            <Info>
-              <span>Team Project</span>
-              <p>
-                농담은 수확 및 가공 과정에서 외형적 기준으로 버려지던 못난이
-                농산물을 선별해 합리적인 가격에 제공함으로써, 가치 소비와 합리적
-                소비를 동시에 실현하는 농산물 커머스 플랫폼입니다.
-              </p>
-              <Icon>
-                <img src="/img/html-icon.png" alt="html" />
-                <img src="/img/css-icon.png" alt="css" />
-                <img src="/img/js-icon.png" alt="js" />
-              </Icon>
-              <Link>
-                <a href="https://github.com/daye0nn/NongDam" target="_blank">
-                  Github
-                </a>
-                <a
-                  href="https://nongdam.netlify.app/index.html"
-                  target="_blank"
-                >
-                  Site
-                </a>
-              </Link>
-            </Info>
-          </Item>
-        </Card>
-        <Card className="card">
-          <h4>ZIP</h4>
-          <Item>
-            <img src="/img/zip.JPG" alt="zip" />
-            <Info>
-              <span>Team Project</span>
-              <p>
-                ZIP은 패션 매거진의 인마이백 영상 속 제품을 기반으로, 스타의
-                실제 사용템만을 선별하여 소개하고 판매하는 OTT와 커머스를 결합한
-                플랫폼입니다.
-              </p>
-              <Icon>
-                <img src="/img/react-icon.png" alt="react" />
-                <img
-                  src="/img/styledcomponent-icon.png"
-                  alt="styled-components"
-                />
-                <img src="/img/reactQuery-icon.png" alt="reactQuery" />
-                <img src="/img/vite-icon.png" alt="vite" />
-                <img src="/img/firebase-icon.png" alt="firebase" />
-              </Icon>
-              <Link>
-                <a href="https://github.com/daye0nn/ZIP." target="_blank">
-                  Github
-                </a>
-                <a
-                  href="https://zip-project-ddd42.firebaseapp.com/"
-                  target="_blank"
-                >
-                  Site
-                </a>
-              </Link>
-            </Info>
-          </Item>
-        </Card>
-      </Horizontal>
-    </Container>
+    <>
+      <Container>
+        {projectData.map((project) => (
+          <Card key={project.id} className="card">
+            <div className="mask"></div>
+            <img src={project.image} alt={project.title} />
+            {project.type && <Type>{project.type}</Type>}
+            <Wrapper>
+              <Info>
+                <h4>{project.title}</h4>
+                <p>{project.description}</p>
+                <p>position : {project.role}</p>
+                <Skills>
+                  {project.skills.map((skill, idx) => (
+                    <p key={idx}>{skill}</p>
+                  ))}
+                </Skills>
+                <Link>
+                  <a href={project.site} target="_blank" rel="noreferrer">
+                    Site
+                    <FontAwesomeIcon icon={faArrowRight} />
+                  </a>
+                  <a href={project.code} target="_blank" rel="noreferrer">
+                    Code Review
+                  </a>
+                </Link>
+              </Info>
+            </Wrapper>
+          </Card>
+        ))}
+      </Container>
+    </>
   );
 };
 

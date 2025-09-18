@@ -1,9 +1,7 @@
-import React from "react";
+import { useEffect, useRef } from "react";
 import styled, { keyframes } from "styled-components";
-import Profile from "./Profile";
-import Skill from "./Skill";
-import Project from "./Project";
-import Footer from "./Footer";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 const Container = styled.div`
   width: 100%;
@@ -13,14 +11,17 @@ const Container = styled.div`
   justify-content: center;
 `;
 
-const Title = styled.div`
+const Title = styled.h1`
   width: 100%;
   text-align: center;
   color: var(--dark-color);
   text-transform: uppercase;
   font-size: 30rem;
+  /* font-size: 26rem; */
+  font-weight: 500;
   position: absolute;
   top: 20%;
+  opacity: 0;
 `;
 
 const float = keyframes`
@@ -52,24 +53,57 @@ const Text = styled.div`
   margin-bottom: 30px;
 `;
 
+gsap.registerPlugin(ScrollTrigger);
+
 const Cover = () => {
+  const titleRef = useRef(null);
+  const textRef = useRef(null);
+
+  // text animation
+  useEffect(() => {
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: titleRef.current,
+        start: "top 80%",
+        toggleActions: "play reverse play reverse",
+      },
+    });
+
+    //Title
+    tl.fromTo(
+      titleRef.current,
+      { y: 100, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" }
+    );
+
+    // Text
+    tl.fromTo(
+      textRef.current.querySelectorAll("p"),
+      { y: 50, opacity: 0 },
+      { y: 0, opacity: 1, duration: 1.2, ease: "power4.out", stagger: 0.2 },
+      "-=0.8" // Title 끝나기 전에 같이 실행
+    );
+  }, []);
   return (
-    <>
-      <Container>
-        <Title>portfolio</Title>
-        <ImgeWrapper>
+    <Container>
+      <Title ref={titleRef}>portfolio</Title>
+      {/* <ImgeWrapper>
           <img src="/object.png" alt="" />
-        </ImgeWrapper>
-        <Text>
-          <p>FrontEnd Developer</p>
-          <p> CHOI Da Yeon</p>
-        </Text>
-      </Container>
-      <Profile />
-      <Skill />
-      <Project />
-      <Footer />
-    </>
+        </ImgeWrapper> */}
+      <Text ref={textRef}>
+        <p>&copy;2025</p>
+        <p>
+          Web
+          <br />
+          Publisher
+        </p>
+        <p>
+          Designed by
+          <br />
+          DaYeon Choi
+        </p>
+      </Text>
+    </Container>
   );
 };
 

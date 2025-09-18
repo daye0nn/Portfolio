@@ -2,6 +2,11 @@ import Globalstyles from "./styles/GlobalStyles.styles";
 import { Outlet } from "react-router-dom";
 import Lenis from "lenis";
 import Header from "./components/Header";
+import Cover from "./components/Cover";
+import Profile from "./components/Profile";
+import Skill from "./components/Skill";
+import Project from "./components/Project";
+import Footer from "./components/Footer";
 
 function Root() {
   // lenis 라이브러리
@@ -17,7 +22,10 @@ function Root() {
   return (
     <>
       <Globalstyles />
-      <Header />
+      <Cover />
+      <Profile />
+      <Project />
+      <Footer />
       <Outlet />
     </>
   );

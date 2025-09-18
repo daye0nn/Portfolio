@@ -21,6 +21,8 @@ const Globalstyles = createGlobalStyle`
     --dark-color: #000;
     --light-color: #fff;
     --sub-color: #858585;
+    --sub-text: #777;
+    --bg-color: #F8F9FA;
   }
 
   html {
@@ -29,7 +31,8 @@ const Globalstyles = createGlobalStyle`
 
   body {
     font-size: 1.6rem;
-    font-family: "Avenir","Pretendard", sans-serif;
+    font-family: "Bricolage Grotesque","Pretendard", sans-serif;
+    background: var(--bg-color);
   }
 
   @font-face {

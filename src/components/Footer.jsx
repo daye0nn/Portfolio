@@ -2,6 +2,15 @@ import styled from "styled-components";
 
 const Container = styled.div`
   display: flex;
+  flex-direction: column;
+  span {
+    text-align: center;
+    color: var(--sub-text);
+  }
+`;
+
+const Wrapper = styled.div`
+  display: flex;
   justify-content: space-between;
   margin: 300px 60px 100px 60px;
   align-items: center;
@@ -23,12 +32,17 @@ const Text = styled.div`
 
 const Contact = styled.ul`
   display: flex;
-  flex-direction: column;
   gap: 20px;
   font-size: 2rem;
-  li {
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     a {
-      color: var(--sub-color);
+      display: flex;
+      flex-direction: column;
+      color: var(--sub-text);
+      cursor: pointer;
     }
   }
 `;
@@ -37,23 +51,27 @@ const Footer = () => {
   return (
     <>
       <Container>
-        <Text>
-          <h4>Thank You</h4>
-          <p>봐주셔서 감사합니다</p>
-        </Text>
-        <Contact>
-          <li>
-            PHONE <a>010.2678.1142</a>
-          </li>
-          <li>
-            EMAIL <a>dayeonnchoi@naver.com</a>
-          </li>
-          <li>
-            GITHUB <a>@daye0nn</a>
-          </li>
-        </Contact>
+        <Wrapper>
+          <Text>
+            <h4>Contact Me</h4>
+          </Text>
+          <Contact>
+            <div>
+              <p>Email</p>
+              <p>Phone</p>
+              <p>Github</p>
+            </div>
+            <div>
+              <a href="mailto:dayeonnchoi@gmail.com">dayeonnchoi@gmail.com</a>
+              <a>010.2678.1142</a>
+              <a href="https://github.com/daye0nn" target="_blank">
+                @daye0nn
+              </a>
+            </div>
+          </Contact>
+        </Wrapper>
+        <span>&copy; 2025 choidayeon. All rights reserved.</span>
       </Container>
-      <p>&copy; 2025 choidayeon. All rights reserved.</p>
     </>
   );
 };

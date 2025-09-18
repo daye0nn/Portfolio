@@ -1,36 +1,43 @@
 import styled from "styled-components";
 
 const Container = styled.div`
-  display: flex;
-  /* justify-content: right; */
-  color: var(--light-color);
-  border: 1px solid var(--light-color);
   position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  top: 20px;
-  border-radius: 50px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  /* justify-content: right; */
+  /* border: 1px solid var(--light-color); */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
+  /* top: 20px; */
+  /* border-radius: 50px; */
   z-index: 3;
   background: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  mix-blend-mode: difference;
+  /* background: rgba(255, 255, 255, 0.2); */
+  /* mix-blend-mode: difference; */
 `;
 
-const Wrapper = styled.ul`
+const Wrapper = styled.nav`
   display: flex;
-  gap: 20px;
+  gap: 40px;
   padding: 15px 20px;
+  a {
+    color: var(--light-color);
+    mix-blend-mode: difference;
+  }
 `;
 
 const Header = () => {
   return (
     <Container>
       <Wrapper>
-        <li>About Me</li>
-        <li>Skill</li>
-        <li>Project</li>
-        <li>Contact</li>
+        <a>About Me</a>
+        <a>Project</a>
+        <a>Contact</a>
       </Wrapper>
     </Container>
   );

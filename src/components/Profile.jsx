@@ -2,38 +2,69 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  /* display: flex; */
   height: 100vh;
-  background: #f0f0f0;
-  h4 {
+  display: flex;
+  align-items: center;
+  /* background: #f0f0f0; */
+  /* h3 {
+    padding: 60px;
     font-size: 4rem;
     font-weight: 500;
-  }
+  } */
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  gap: 40px;
+  gap: 180px;
+  padding-left: 14%;
+  align-items: center;
 `;
 
 const ImgWrap = styled.div`
-  width: 250px;
+  display: flex;
+  flex-direction: column;
+  width: 280px;
+  gap: 20px;
 `;
 
 const Img = styled.div`
+  position: relative;
+  h3 {
+    font-size: 5rem;
+    position: absolute;
+    left: 0;
+    top: -8%;
+  }
   img {
     width: 100%;
     object-fit: cover;
+    border-radius: 50%;
   }
   /* img {
     width: 50%;
   } */
 `;
 
-const Info = styled.div``;
+const Info = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  h4 {
+    /* font-size: 2.6rem; */
+    font-size: 2rem;
+    b {
+      font-size: 3rem;
+      font-weight: 600;
+    }
+  }
+  p {
+    font-size: 2rem;
+    color: var(--sub-text);
+    line-height: 1.4;
+  }
+`;
 
 const Textwrap = styled.div`
-  width: 80%;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -43,10 +74,19 @@ const Education = styled.div`
   display: flex;
   flex-direction: column;
   gap: 10px;
-  h5 {
+  h4 {
+    font-size: 3rem;
+  }
+  p {
     font-size: 2rem;
+    /* line-height: 1.4; */
+    span {
+      color: var(--sub-text);
+    }
   }
 `;
+
+const Introduce = styled(Education)``;
 
 const Certification = styled(Education)``;
 
@@ -55,42 +95,62 @@ const Awards = styled(Education)``;
 const Profile = () => {
   return (
     <Container>
-      <h4>About Me</h4>
+      {/* <h3>About Me</h3> */}
       <Wrapper>
         <ImgWrap>
           <Img>
-            <img src="/profile.JPG" alt="profile" />
+            <h3>About Me</h3>
+            <img src="/profile.jpg" alt="profile" />
           </Img>
           <Info>
-            <h5>최다연</h5>
-            <p>2001.12.30</p>
-            <p>Phone</p>
-            <p>010-2678-1142</p>
-            <p>Email</p>
-            <p>dayeonnchoi@naver.com</p>
+            <h4>
+              <b>최 다 연</b> / CHOI DaYeon
+            </h4>
+            <p>
+              사용자의 경험을 최우선으로 생각하며, 끊임없이 배우고 성장하는
+              프론트엔드 개발자입니다.
+            </p>
           </Info>
         </ImgWrap>
         <Textwrap>
+          <Introduce>
+            <h4>Introduce</h4>
+            <p>2001.12.30</p>
+            <p>010.2678.1142</p>
+            <p>dayeonnchoi@gmail.com</p>
+          </Introduce>
           <Education>
-            <h5>Education</h5>
-            <p>2020.02 광남고등학교 졸업</p>
-            <p>2020.03 ~ 2023.02 동서울대학교 정보통신과 졸업</p>
-            <p>2023.03 ~ 2024.02 동서울대학교 ICT융합학과(학사학위) 졸업</p>
+            <h4>Education</h4>
             <p>
-              2024.07 ~ 2024.07 AWS 리눅스 기반 클라우드 데브옵스 기초 실무 과정
-              수료
+              <span>2024.12 ~ 2025.06</span> UX/UI디자인 웹 프론트엔드개발
+              부트캠프 과정 수료
             </p>
             <p>
-              2024.12 ~ 2025.06 UX/UI디자인 웹 프론트엔드개발 부트캠프 과정 수료
+              <span>2024.07 ~ 2024.07</span> AWS 리눅스 기반 클라우드 데브옵스
+              기초 실무 과정 수료
+            </p>
+            <p>
+              <span>2023.03 ~ 2024.02</span> 동서울대학교 ICT융합학과(학사학위)
+              졸업
+            </p>
+            <p>
+              <span>2020.03 ~ 2023.02</span> 동서울대학교 정보통신과 졸업
+            </p>
+            <p>
+              <span>2020.02</span> 광남고등학교 졸업
             </p>
           </Education>
           <Certification>
-            <h5>Certification</h5>
-            <p>2022.07 인공지능전문가 자격증 AIEC</p>
+            <h4>Certification</h4>
+            <p>
+              <span>2022.07</span> 인공지능전문가 자격증 AIEC
+            </p>
           </Certification>
           <Awards>
-            <h5>Awards</h5>
-            <p>2022 우수논문상</p>
+            <h4>Awards</h4>
+            <p>
+              <span>2022</span> 우수논문상
+            </p>
             <span>자동 제동 기능이 추가된 스마트유모차 연구 우수논문상</span>
           </Awards>
         </Textwrap>
