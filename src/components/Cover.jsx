@@ -1,108 +1,75 @@
-import { useEffect, useRef } from "react";
-import styled, { keyframes } from "styled-components";
+import { useEffect } from "react";
+import styled from "styled-components";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const Container = styled.div`
+gsap.registerPlugin(ScrollTrigger);
+
+const Container = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-`;
-
-const Title = styled.h1`
-  width: 100%;
-  text-align: center;
-  color: var(--dark-color);
-  text-transform: uppercase;
-  font-size: 30rem;
-  /* font-size: 26rem; */
-  font-weight: 500;
-  position: absolute;
-  top: 20%;
-  opacity: 0;
-`;
-
-const float = keyframes`
-  0% { transform: translateY(0); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0); }
-`;
-
-const ImgeWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translateX(-50%);
-  img {
-    width: 300px;
-    object-fit: cover;
-    animation: ${float} 3s ease-in-out infinite;
+  align-items: center;
+  padding-top: 10vw;
+  overflow-x: hidden;
+  p {
+    position: absolute;
+    top: 2%;
+    left: 2%;
+    font-size: 2vw;
+    font-weight: 300;
   }
 `;
 
-const Text = styled.div`
-  width: 100%;
+const Wrapper = styled.div`
   display: flex;
-  justify-content: space-between;
-  font-size: 2.6rem;
-  padding: 0 20px;
-  position: absolute;
-  bottom: 0;
-  margin-bottom: 30px;
+  flex-direction: column;
+  padding: 0 2vw;
 `;
 
-gsap.registerPlugin(ScrollTrigger);
+const Title = styled.h1`
+  display: block;
+  width: 100%;
+  font-size: 14vw;
+  line-height: 1;
+  text-transform: uppercase;
+  text-align: left;
+  span {
+    font-size: 8vw;
+  }
+`;
+
+const Title2 = styled(Title)`
+  white-space: nowrap;
+  overflow: hidden;
+`;
 
 const Cover = () => {
-  const titleRef = useRef(null);
-  const textRef = useRef(null);
-
-  // text animation
   useEffect(() => {
-    const tl = gsap.timeline({
+    const titleAni = gsap.timeline({
       scrollTrigger: {
-        trigger: titleRef.current,
-        start: "top 80%",
-        toggleActions: "play reverse play reverse",
+        trigger: ".visual .title",
+        start: "top 30%",
+        end: "bottom top",
+        scrub: 1,
       },
     });
 
-    //Title
-    tl.fromTo(
-      titleRef.current,
-      { y: 100, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.5, ease: "power4.out" }
-    );
-
-    // Text
-    tl.fromTo(
-      textRef.current.querySelectorAll("p"),
-      { y: 50, opacity: 0 },
-      { y: 0, opacity: 1, duration: 1.2, ease: "power4.out", stagger: 0.2 },
-      "-=0.8" // Title 끝나기 전에 같이 실행
-    );
+    titleAni
+      .fromTo(".visual .line1", { xPercent: 0 }, { xPercent: 100 }, 0)
+      .fromTo(".visual .line2", { xPercent: 0 }, { xPercent: -100 }, 0);
   }, []);
+
   return (
-    <Container>
-      <Title ref={titleRef}>portfolio</Title>
-      {/* <ImgeWrapper>
-          <img src="/object.png" alt="" />
-        </ImgeWrapper> */}
-      <Text ref={textRef}>
-        <p>&copy;2025</p>
-        <p>
-          Web
-          <br />
-          Publisher
-        </p>
-        <p>
-          Designed by
-          <br />
-          DaYeon Choi
-        </p>
-      </Text>
+    <Container className="visual">
+      <p>&copy;2025 DaYeon Choi</p>
+      <Wrapper className="title">
+        <Title className="line1">
+          portfolio<span>&</span>
+        </Title>
+        <Title2 className="line2">web publisher</Title2>
+      </Wrapper>
     </Container>
   );
 };

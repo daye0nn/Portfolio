@@ -16,7 +16,7 @@ const Container = styled.section`
 
 const Card = styled.div`
   width: 100%;
-  height: 600px;
+  height: 80vh;
   margin-bottom: 50px;
   border-radius: 10px;
   color: #f5f5f5;
@@ -62,7 +62,7 @@ const Wrapper = styled.div`
 
 const Info = styled.div`
   width: 100%;
-  padding: 4rem;
+  padding: 12rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -71,6 +71,8 @@ const Info = styled.div`
   h4 {
     font-size: 8rem;
     font-weight: bold;
+    margin-bottom: 14px;
+    padding-top: 10rem;
   }
   p {
     word-break: keep-all;
@@ -113,7 +115,7 @@ const Link = styled.div`
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(16, 18, 20, 0.25);
     backdrop-filter: blur(20px);
-    padding: 10px;
+    padding: 10px 18px;
     border-radius: 10px;
     transition: all 0.3s ease-in-out;
     cursor: pointer;
@@ -195,7 +197,7 @@ const Project = () => {
               <Info>
                 <h4>{project.title}</h4>
                 <p>{project.description}</p>
-                <p>position : {project.role}</p>
+                {project.role && <p>position : {project.role}</p>}
                 <Skills>
                   {project.skills.map((skill, idx) => (
                     <p key={idx}>{skill}</p>

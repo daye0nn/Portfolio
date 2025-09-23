@@ -26,7 +26,7 @@ const projectData = [
     description:
       "농담은 수확 및 가공 과정에서 외형적 기준으로 버려지던 못난이 농산물을 선별해 합리적인 가격에 제공함으로써, 가치 소비와 합리적 소비를 동시에 실현하는 농산물 커머스 플랫폼입니다.",
     role: "Main & Category",
-    skills: ["#html", "#css", "#JavaScript", "#Netlify"],
+    skills: ["#HTML", "#SCSS", "#JavaScript", "#Netlify"],
     image: "/img/nongdam.JPG",
     site: "https://nongdam.netlify.app/index.html",
     code: "https://github.com/daye0nn/NongDam",
@@ -34,19 +34,17 @@ const projectData = [
 
   {
     id: 3,
-    title: "Project Two",
+    title: "Music Player",
     description: "두 번째 프로젝트 설명입니다.",
-    role: "API 연동, 검색 기능",
-    skills: ["#React", "#Lenis", "#Youtube API"],
+    skills: ["#HTML", "#CSS", "#JavaScript"],
     image: "/img/musicplayer.JPG",
-    site: "https://example.com/project2",
-    code: "https://github.com/daye0nn/project2",
+    site: "https://music-playlist01.netlify.app/",
+    code: "https://github.com/daye0nn/Musicplayer",
   },
   {
     id: 4,
     title: "Project Three",
     description: "세 번째 프로젝트 설명입니다.",
-    role: "카테고리 페이지, 애니메이션",
     skills: ["#React", "#Pagination", "#GSAP"],
     image: "/img/project3.png",
     site: "https://example.com/project3",

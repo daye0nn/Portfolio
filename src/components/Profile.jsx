@@ -113,13 +113,13 @@ const Profile = () => {
           </Info>
         </ImgWrap>
         <Textwrap>
-          <Introduce>
+          <Introduce className="target-text">
             <h4>Introduce</h4>
             <p>2001.12.30</p>
             <p>010.2678.1142</p>
             <p>dayeonnchoi@gmail.com</p>
           </Introduce>
-          <Education>
+          <Education className="target-text">
             <h4>Education</h4>
             <p>
               <span>2024.12 ~ 2025.06</span> UX/UI디자인 웹 프론트엔드개발
@@ -140,13 +140,13 @@ const Profile = () => {
               <span>2020.02</span> 광남고등학교 졸업
             </p>
           </Education>
-          <Certification>
+          <Certification className="target-text">
             <h4>Certification</h4>
             <p>
               <span>2022.07</span> 인공지능전문가 자격증 AIEC
             </p>
           </Certification>
-          <Awards>
+          <Awards className="target-text">
             <h4>Awards</h4>
             <p>
               <span>2022</span> 우수논문상

@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 const Container = styled.div`
   display: flex;
@@ -6,6 +9,7 @@ const Container = styled.div`
   span {
     text-align: center;
     color: var(--sub-text);
+    margin-bottom: 20px;
   }
 `;
 
@@ -16,33 +20,21 @@ const Wrapper = styled.div`
   align-items: center;
 `;
 
-const Text = styled.div`
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  h4 {
-    font-size: 14rem;
-    font-weight: 500;
-  }
-  p {
-    color: var(--sub-color);
-    font-size: 2rem;
-  }
+const Text = styled.h4`
+  font-size: 14rem;
+  font-weight: 500;
 `;
 
 const Contact = styled.ul`
   display: flex;
   gap: 20px;
-  font-size: 2rem;
-  div {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    a {
-      display: flex;
-      flex-direction: column;
-      color: var(--sub-text);
-      cursor: pointer;
+  font-size: 4rem;
+  a {
+    color: var(--sub-text);
+    transition: all 0.3s;
+    cursor: pointer;
+    &:hover {
+      color: var(--dark-color);
     }
   }
 `;
@@ -52,22 +44,14 @@ const Footer = () => {
     <>
       <Container>
         <Wrapper>
-          <Text>
-            <h4>Contact Me</h4>
-          </Text>
+          <Text>Contact Me</Text>
           <Contact>
-            <div>
-              <p>Email</p>
-              <p>Phone</p>
-              <p>Github</p>
-            </div>
-            <div>
-              <a href="mailto:dayeonnchoi@gmail.com">dayeonnchoi@gmail.com</a>
-              <a>010.2678.1142</a>
-              <a href="https://github.com/daye0nn" target="_blank">
-                @daye0nn
-              </a>
-            </div>
+            <a href="mailto:dayeonnchoi@gmail.com">
+              <FontAwesomeIcon icon={faEnvelope} />
+            </a>
+            <a href="https://github.com/daye0nn" target="_blank">
+              <FontAwesomeIcon icon={faGithub} />
+            </a>
           </Contact>
         </Wrapper>
         <span>&copy; 2025 choidayeon. All rights reserved.</span>
