@@ -22,7 +22,8 @@ const Globalstyles = createGlobalStyle`
     --light-color: #fff;
     --sub-color: #858585;
     --sub-text: #777;
-    --bg-color: #F8F9FA;
+    --light-bg: #F8F9FA;
+    --dark-bg: #0f0f0f;
   }
 
   html {
@@ -32,7 +33,7 @@ const Globalstyles = createGlobalStyle`
   body {
     font-size: 1.6rem;
     font-family: "Bricolage Grotesque","Pretendard", sans-serif;
-    background: var(--bg-color);
+    background: var(--dark-bg);
   }
 
   @font-face {

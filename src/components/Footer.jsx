@@ -1,9 +1,12 @@
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
-const Container = styled.div`
+const Container = styled.section`
   display: flex;
   flex-direction: column;
   span {
@@ -40,23 +43,41 @@ const Contact = styled.ul`
 `;
 
 const Footer = () => {
+  const textRef = useRef(null);
+
+  useEffect(() => {
+    gsap.set(textRef.current, {
+      yPercent: 110,
+      rotateX: -45,
+      transformOrigin: "0% 50% -100%",
+      opacity: 0,
+      transformStyle: "preserve-3d",
+    });
+
+    gsap.to(textRef.current, {
+      yPercent: 0,
+      rotateX: 0,
+      opacity: 1,
+      transformOrigin: "50% 50%",
+      duration: 1.2,
+      ease: "power3.out",
+    });
+  }, []);
   return (
-    <>
-      <Container>
-        <Wrapper>
-          <Text>Contact Me</Text>
-          <Contact>
-            <a href="mailto:dayeonnchoi@gmail.com">
-              <FontAwesomeIcon icon={faEnvelope} />
-            </a>
-            <a href="https://github.com/daye0nn" target="_blank">
-              <FontAwesomeIcon icon={faGithub} />
-            </a>
-          </Contact>
-        </Wrapper>
-        <span>&copy; 2025 choidayeon. All rights reserved.</span>
-      </Container>
-    </>
+    <Container>
+      <Wrapper>
+        <Text ref={textRef}>Contact Me</Text>
+        <Contact>
+          <a href="mailto:dayeonnchoi@gmail.com">
+            <FontAwesomeIcon icon={faEnvelope} />
+          </a>
+          <a href="https://github.com/daye0nn" target="_blank">
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+        </Contact>
+      </Wrapper>
+      <span>&copy; 2025 choidayeon. All rights reserved.</span>
+    </Container>
   );
 };
 

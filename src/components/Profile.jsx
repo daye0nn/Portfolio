@@ -1,16 +1,21 @@
 import styled from "styled-components";
 
-const Container = styled.div`
+const Container = styled.section`
   width: 100%;
   height: 100vh;
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  color: #f8f8f8;
   /* background: #f0f0f0; */
   /* h3 {
     padding: 60px;
     font-size: 4rem;
     font-weight: 500;
   } */
+  h3 {
+    font-size: 5rem;
+    padding: 2vw 4vw;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -18,6 +23,7 @@ const Wrapper = styled.div`
   gap: 180px;
   padding-left: 14%;
   align-items: center;
+  border: 1px solid #f00;
 `;
 
 const ImgWrap = styled.div`
@@ -25,6 +31,7 @@ const ImgWrap = styled.div`
   flex-direction: column;
   width: 280px;
   gap: 20px;
+  border: 1px solid #f00;
 `;
 
 const Img = styled.div`
@@ -57,17 +64,12 @@ const Info = styled.div`
       font-weight: 600;
     }
   }
-  p {
-    font-size: 2rem;
-    color: var(--sub-text);
-    line-height: 1.4;
-  }
 `;
 
 const Textwrap = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 50px;
+  gap: 14vh;
 `;
 
 const Education = styled.div`
@@ -95,31 +97,26 @@ const Awards = styled(Education)``;
 const Profile = () => {
   return (
     <Container>
-      {/* <h3>About Me</h3> */}
+      <h3>About Me</h3>
       <Wrapper>
         <ImgWrap>
           <Img>
-            <h3>About Me</h3>
             <img src="/profile.jpg" alt="profile" />
           </Img>
           <Info>
             <h4>
               <b>최 다 연</b> / CHOI DaYeon
             </h4>
-            <p>
-              사용자의 경험을 최우선으로 생각하며, 끊임없이 배우고 성장하는
-              프론트엔드 개발자입니다.
-            </p>
+            <Introduce>
+              <h4>Introduce</h4>
+              <p>2001.12.30</p>
+              <p>010.2678.1142</p>
+              <p>dayeonnchoi@gmail.com</p>
+            </Introduce>
           </Info>
         </ImgWrap>
         <Textwrap>
-          <Introduce className="target-text">
-            <h4>Introduce</h4>
-            <p>2001.12.30</p>
-            <p>010.2678.1142</p>
-            <p>dayeonnchoi@gmail.com</p>
-          </Introduce>
-          <Education className="target-text">
+          <Education>
             <h4>Education</h4>
             <p>
               <span>2024.12 ~ 2025.06</span> UX/UI디자인 웹 프론트엔드개발
@@ -140,13 +137,13 @@ const Profile = () => {
               <span>2020.02</span> 광남고등학교 졸업
             </p>
           </Education>
-          <Certification className="target-text">
+          <Certification>
             <h4>Certification</h4>
             <p>
               <span>2022.07</span> 인공지능전문가 자격증 AIEC
             </p>
           </Certification>
-          <Awards className="target-text">
+          <Awards>
             <h4>Awards</h4>
             <p>
               <span>2022</span> 우수논문상
