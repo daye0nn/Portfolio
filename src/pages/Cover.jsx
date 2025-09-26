@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import styled from "styled-components";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { textAni } from "../js/animation";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -44,11 +45,21 @@ const Title = styled.h1`
   span {
     font-size: 8vw;
   }
+  @media (max-width: 767px) {
+    text-align: center;
+    span {
+      display: block;
+      text-align: center;
+    }
+  }
 `;
 
 const Title2 = styled(Title)`
   white-space: nowrap;
   overflow: hidden;
+  @media (max-width: 767px) {
+    white-space: normal;
+  }
 `;
 
 const Cover = () => {
@@ -56,25 +67,26 @@ const Cover = () => {
   const line2Ref = useRef(null);
 
   useEffect(() => {
-    // 초기 세팅
-    gsap.set([line1Ref.current, line2Ref.current], {
-      yPercent: 110,
-      rotateX: -45,
-      transformOrigin: "0% 50% -100%",
-      opacity: 0,
-      transformStyle: "preserve-3d",
-    });
+    // // 초기 세팅
+    // gsap.set([line1Ref.current, line2Ref.current], {
+    //   yPercent: 110,
+    //   rotateX: -45,
+    //   transformOrigin: "0% 50% -100%",
+    //   opacity: 0,
+    //   transformStyle: "preserve-3d",
+    // });
 
-    //동작
-    gsap.to([line1Ref.current, line2Ref.current], {
-      yPercent: 0,
-      rotationX: 0,
-      opacity: 1,
-      transformOrigin: "50% 50%",
-      duration: 1.2,
-      stagger: 0.1, // 순차적으로 애니메이션
-      ease: "power3.out",
-    });
+    // //동작
+    // gsap.to([line1Ref.current, line2Ref.current], {
+    //   yPercent: 0,
+    //   rotationX: 0,
+    //   opacity: 1,
+    //   transformOrigin: "50% 50%",
+    //   duration: 1.2,
+    //   stagger: 0.1, // 순차적으로 애니메이션
+    //   ease: "power3.out",
+    // });
+    textAni([line1Ref.current, line2Ref.current], { stagger: 0.1 });
 
     // 스크롤 시 양옆으로 퍼지는 애니메이션
     const scrollAni = gsap.timeline({

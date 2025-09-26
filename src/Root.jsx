@@ -3,11 +3,11 @@ import styled from "styled-components";
 import Globalstyles from "./styles/GlobalStyles.styles";
 import { Outlet } from "react-router-dom";
 import Lenis from "lenis";
-import Cover from "./components/Cover";
-import Profile from "./components/Profile";
-import Intro from "./components/Intro";
-import Project from "./components/Project";
-import Footer from "./components/Footer";
+import Cover from "./pages/Cover";
+import Profile from "./pages/Profile";
+import Intro from "./pages/Intro";
+import Project from "./pages/Project";
+import Footer from "./pages/Footer";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 
@@ -19,7 +19,7 @@ const Background = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #0f0f0f;
+  background-color: var(--dark-bg);
   z-index: -1;
 `;
 

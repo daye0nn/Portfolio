@@ -1,10 +1,13 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { textAni } from "../js/animation";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-solid-svg-icons";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { text } from "@fortawesome/fontawesome-svg-core";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.section`
   display: flex;
@@ -19,13 +22,17 @@ const Container = styled.section`
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
-  margin: 300px 60px 100px 60px;
+  /* margin: 300px 60px 100px 60px; */
+  margin: 34vh 6vw 14vh 6vw;
   align-items: center;
 `;
 
 const Text = styled.h4`
   font-size: 14rem;
   font-weight: 500;
+  @media (max-width: 1023px) {
+    font-size: 10rem;
+  }
 `;
 
 const Contact = styled.ul`
@@ -40,31 +47,49 @@ const Contact = styled.ul`
       color: var(--dark-color);
     }
   }
+  @media (max-width: 1023px) {
+    font-size: 3.6rem;
+  }
 `;
 
 const Footer = () => {
   const textRef = useRef(null);
 
   useEffect(() => {
-    gsap.set(textRef.current, {
-      yPercent: 110,
-      rotateX: -45,
-      transformOrigin: "0% 50% -100%",
-      opacity: 0,
-      transformStyle: "preserve-3d",
+    const ctx = gsap.context(() => {
+      gsap
+        .timeline({
+          scrollTrigger: {
+            trigger: ".footer-trigger",
+            start: "top center",
+            toggleActions: "play none none reverse",
+          },
+        })
+        .add(textAni(textRef.current));
+
+      // gsap.set(textRef.current, {
+      //   yPercent: 110,
+      //   rotateX: -45,
+      //   opacity: 0,
+      //   transformOrigin: "0% 50% -100%",
+      //   transformStyle: "preserve-3d",
+      // });
+
+      // tl.to(textRef.current, {
+      //   yPercent: 0,
+      //   rotateX: 0,
+      //   opacity: 1,
+      //   transformOrigin: "50% 50%",
+      //   duration: 1.2,
+      //   ease: "power3.out",
+      // });
     });
 
-    gsap.to(textRef.current, {
-      yPercent: 0,
-      rotateX: 0,
-      opacity: 1,
-      transformOrigin: "50% 50%",
-      duration: 1.2,
-      ease: "power3.out",
-    });
+    return () => ctx.revert();
   }, []);
+
   return (
-    <Container>
+    <Container className="footer-trigger">
       <Wrapper>
         <Text ref={textRef}>Contact Me</Text>
         <Contact>

@@ -5,6 +5,7 @@ const Container = styled.section`
   height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   color: #f8f8f8;
   /* background: #f0f0f0; */
   /* h3 {
@@ -14,54 +15,58 @@ const Container = styled.section`
   } */
   h3 {
     font-size: 5rem;
-    padding: 2vw 4vw;
+    margin-left: 10%;
+    /* padding: 2vw 6vw; */
   }
 `;
 
 const Wrapper = styled.div`
   display: flex;
-  gap: 180px;
+  gap: 14vw;
   padding-left: 14%;
   align-items: center;
-  border: 1px solid #f00;
+  @media (max-width: 1023px) {
+    gap: 10vw;
+  }
+  @media (max-width: 767px) {
+    justify-content: center;
+    padding: 0 8%;
+  }
+`;
+
+const Info = styled.div`
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  width: 280px;
+  gap: 4vh;
 `;
 
 const ImgWrap = styled.div`
   display: flex;
   flex-direction: column;
-  width: 280px;
   gap: 20px;
-  border: 1px solid #f00;
-`;
-
-const Img = styled.div`
-  position: relative;
-  h3 {
-    font-size: 5rem;
-    position: absolute;
-    left: 0;
-    top: -8%;
+  h4 {
+    /* font-size: 2.6rem; */
+    font-size: 3rem;
+    color: var(--sub-text);
+    b {
+      font-weight: 600;
+      color: #f8f8f8;
+    }
   }
   img {
     width: 100%;
     object-fit: cover;
     border-radius: 50%;
   }
-  /* img {
-    width: 50%;
-  } */
-`;
-
-const Info = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 30px;
-  h4 {
-    /* font-size: 2.6rem; */
-    font-size: 2rem;
-    b {
-      font-size: 3rem;
-      font-weight: 600;
+  @media (max-width: 1023px) {
+    h4 {
+      font-size: 2.8rem;
+      b {
+        display: block;
+      }
     }
   }
 `;
@@ -69,6 +74,7 @@ const Info = styled.div`
 const Textwrap = styled.div`
   display: flex;
   flex-direction: column;
+  height: auto;
   gap: 14vh;
 `;
 
@@ -81,10 +87,20 @@ const Education = styled.div`
   }
   p {
     font-size: 2rem;
-    /* line-height: 1.4; */
+    line-height: 1.2;
     span {
       color: var(--sub-text);
     }
+  }
+  @media (max-width: 1023px) {
+    h4 {
+      font-size: 2.6rem;
+    }
+    p {
+      font-size: 1.8rem;
+    }
+  }
+  @media (max-width: 767px) {
   }
 `;
 
@@ -97,24 +113,22 @@ const Awards = styled(Education)``;
 const Profile = () => {
   return (
     <Container>
-      <h3>About Me</h3>
+      <h3>Profile</h3>
       <Wrapper>
-        <ImgWrap>
-          <Img>
-            <img src="/profile.jpg" alt="profile" />
-          </Img>
-          <Info>
+        <Info>
+          <ImgWrap>
+            <img src="/img/profile.jpg" alt="profile" />
             <h4>
-              <b>최 다 연</b> / CHOI DaYeon
+              <b>최 다 연</b> CHOI DaYeon
             </h4>
-            <Introduce>
-              <h4>Introduce</h4>
-              <p>2001.12.30</p>
-              <p>010.2678.1142</p>
-              <p>dayeonnchoi@gmail.com</p>
-            </Introduce>
-          </Info>
-        </ImgWrap>
+          </ImgWrap>
+          <Introduce>
+            <h4>Introduce</h4>
+            <p>2001.12.30</p>
+            <p>010.2678.1142</p>
+            <p>dayeonnchoi@gmail.com</p>
+          </Introduce>
+        </Info>
         <Textwrap>
           <Education>
             <h4>Education</h4>

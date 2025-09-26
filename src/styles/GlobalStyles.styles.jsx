@@ -51,19 +51,6 @@ const Globalstyles = createGlobalStyle`
     font-weight: 700;
     src: url("./assets/fonts/Pretendard-Bold.woff") format('woff');
 }
-
-  @font-face {
-  font-family: "Avenir";
-  src: url("./assets/fonts/Avenir Regular.ttf") format("truetype");
-  font-weight: 400;
-  font-style: normal;
-}
-  @font-face {
-  font-family: "Avenir";
-  src: url("./assets/fonts/Avenir Heavy.ttf") format("truetype");
-  font-weight: 700;
-  font-style: normal;
-}
 `;
 
 export default Globalstyles;

@@ -4,7 +4,7 @@ import ScrollTrigger from "gsap/dist/ScrollTrigger";
 import styled from "styled-components";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import projectData from "../data/projectData";
+import projectData from "../js/projectData";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -21,7 +21,7 @@ const Card = styled.div`
   border-radius: 10px;
   color: #f5f5f5;
   /* background-color: #b5b5ba; */
-  background-color: #121212;
+  /* background-color: #121212; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -58,11 +58,14 @@ const Wrapper = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
+  @media (max-width: 767px) {
+    width: 80%;
+  }
 `;
 
 const Info = styled.div`
   width: 100%;
-  padding: 12rem;
+  padding: 10%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -79,28 +82,20 @@ const Info = styled.div`
     white-space: normal;
     line-height: 1.4;
   }
+  @media (max-width: 1023px) {
+    h4 {
+      font-size: 7rem;
+    }
+  }
 `;
 
 const Skills = styled.div`
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  gap: 10px 20px;
   color: var(--sub-text);
   p {
     white-space: nowrap;
-  }
-`;
-
-const Icon = styled.div`
-  display: flex;
-  gap: 10px;
-  img {
-    width: 60px;
-    height: 60px;
-    /* aspect-ratio: 1; */
-    object-fit: cover;
-    border-radius: 10px;
-    /* box-shadow: 0 0 20px rgba(0, 0, 0, 0.8); */
   }
 `;
 
@@ -112,7 +107,7 @@ const Link = styled.div`
     align-items: center;
     font-weight: 100;
     gap: 0.5rem;
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
     background: rgba(16, 18, 20, 0.25);
     backdrop-filter: blur(20px);
     padding: 10px 18px;
@@ -124,30 +119,10 @@ const Link = styled.div`
       display: inline-block;
     }
     &:hover {
-      background: #fff;
-      color: #000;
+      background: var(--light-color);
+      color: var(--dark-color);
     }
   }
-`;
-
-const ImgWrap = styled.div`
-  width: 60%;
-  height: 100%;
-  display: flex;
-  justify-content: right;
-  align-items: center;
-  img {
-    max-width: 100%;
-    max-height: 100%;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    border-radius: 0 10px 10px 0;
-  }
-`;
-
-const Container2 = styled.div`
-  height: 80vh;
 `;
 
 const Project = () => {
