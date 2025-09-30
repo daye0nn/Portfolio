@@ -6,7 +6,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Container = styled.section`
   width: 100%;
-  height: auto;
+  height: 100%;
 `;
 
 const Text = styled.div`
@@ -24,17 +24,25 @@ const Text = styled.div`
     word-break: keep-all;
     word-wrap: break-word;
   }
+  @media (max-width: 375px) {
+    h3 {
+      font-size: 2rem;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const Intro = () => {
   return (
     <Container className="intro-section">
       <Text>
-        <h3>About Me</h3>
+        <h3>My Goal</h3>
         <p>
           단순히 페이지를 구현하는 것에 그치는 것이 아니라 웹 표준, 웹 접근성,
           그리고 웹 호환성 등을 고려하는 웹 퍼블리셔가 되고자 합니다. 더 나아가
-          프론트엔드에 관련한 프로그래밍 능력도 키워나가 발전하는 사람이
+          프론트엔드에 관련한 프로그래밍 능력도 더욱 키워나가 발전하는 사람이
           되겠습니다.
         </p>
       </Text>

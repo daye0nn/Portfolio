@@ -48,6 +48,9 @@ const Type = styled.h3`
   font-size: 3rem;
   color: #888;
   font-style: italic;
+  @media (max-width: 375px) {
+    font-size: 2rem;
+  }
 `;
 
 const Wrapper = styled.div`
@@ -87,6 +90,16 @@ const Info = styled.div`
       font-size: 7rem;
     }
   }
+  @media (max-width: 375px) {
+    h4 {
+      padding-top: 6rem;
+      font-size: 4rem;
+      margin-bottom: 10px;
+    }
+    p {
+      font-size: 1.6rem;
+    }
+  }
 `;
 
 const Skills = styled.div`
@@ -96,6 +109,9 @@ const Skills = styled.div`
   color: var(--sub-text);
   p {
     white-space: nowrap;
+  }
+  @media (max-width: 375px) {
+    gap: 0 8px;
   }
 `;
 
@@ -121,6 +137,12 @@ const Link = styled.div`
     &:hover {
       background: var(--light-color);
       color: var(--dark-color);
+    }
+  }
+  @media (max-width: 375px) {
+    a {
+      padding: 8px 16px;
+      font-size: 1.6rem;
     }
   }
 `;

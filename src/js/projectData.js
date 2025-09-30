@@ -34,21 +34,21 @@ const projectData = [
 
   {
     id: 3,
+    title: "Netflix",
+    description: "TMDB API를 활용한 netflix 클론 코딩 사이트입니다.",
+    skills: ["#HTML", "#SCSS", "#JavaScript", "#TMDB API"],
+    image: "/img/netflix.JPG",
+    site: "https://movieflix-dayeon.netlify.app/",
+    code: "https://github.com/daye0nn/Netflix",
+  },
+  {
+    id: 4,
     title: "Music Player",
     description: "두 번째 프로젝트 설명입니다.",
     skills: ["#HTML", "#CSS", "#JavaScript"],
     image: "/img/musicplayer.JPG",
     site: "https://music-playlist01.netlify.app/",
     code: "https://github.com/daye0nn/Musicplayer",
-  },
-  {
-    id: 4,
-    title: "Project Three",
-    description: "세 번째 프로젝트 설명입니다.",
-    skills: ["#React", "#Pagination", "#GSAP"],
-    image: "/img/project3.png",
-    site: "https://example.com/project3",
-    code: "https://github.com/daye0nn/project3",
   },
 ];
 

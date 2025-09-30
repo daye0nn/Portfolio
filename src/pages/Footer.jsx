@@ -17,6 +17,11 @@ const Container = styled.section`
     color: var(--sub-text);
     margin-bottom: 20px;
   }
+  @media (max-width: 375px) {
+    span {
+      font-size: 1.4rem;
+    }
+  }
 `;
 
 const Wrapper = styled.div`
@@ -32,6 +37,9 @@ const Text = styled.h4`
   font-weight: 500;
   @media (max-width: 1023px) {
     font-size: 10rem;
+  }
+  @media (max-width: 375px) {
+    font-size: 5rem;
   }
 `;
 
@@ -49,6 +57,9 @@ const Contact = styled.ul`
   }
   @media (max-width: 1023px) {
     font-size: 3.6rem;
+  }
+  @media (max-width: 375px) {
+    font-size: 2.6rem;
   }
 `;
 
