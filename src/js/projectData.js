@@ -31,9 +31,25 @@ const projectData = [
     site: "https://nongdam.netlify.app/index.html",
     code: "https://github.com/daye0nn/NongDam",
   },
-
   {
     id: 3,
+    title: "NEXUS",
+    description:
+      "한샘 넥서스 공식홈페이지 사이트를 TS를 활용해 클론 코딩한 사이트입니다.",
+    skills: [
+      "#React",
+      "#TypeScript",
+      "#StyledComponents",
+      "#AOS",
+      "#SlickSlider",
+    ],
+    image: "/img/nexus.JPG",
+    site: "https://nexus-hanssem.netlify.app/",
+    code: "https://github.com/daye0nn/nexus",
+  },
+
+  {
+    id: 4,
     title: "Netflix",
     description: "TMDB API를 활용한 netflix 클론 코딩 사이트입니다.",
     skills: ["#HTML", "#SCSS", "#JavaScript", "#TMDB API"],
@@ -42,9 +58,9 @@ const projectData = [
     code: "https://github.com/daye0nn/Netflix",
   },
   {
-    id: 4,
+    id: 5,
     title: "Music Player",
-    description: "두 번째 프로젝트 설명입니다.",
+    description: "JS를 활용한 음악 재생 사이트입니다.",
     skills: ["#HTML", "#CSS", "#JavaScript"],
     image: "/img/musicplayer.JPG",
     site: "https://music-playlist01.netlify.app/",
