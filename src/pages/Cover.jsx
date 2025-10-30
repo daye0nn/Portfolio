@@ -13,7 +13,7 @@ const Container = styled.section`
   justify-content: center;
   align-items: center;
   padding-top: 10vw;
-  overflow-x: hidden;
+  overflow: hidden;
   color: #f8f8f8;
   p {
     position: absolute;
@@ -28,22 +28,26 @@ const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   padding: 0 2vw;
+  gap: 6vh;
 `;
 
 const MotionText = styled.div`
+  width: 100%;
   display: inline-block;
   transform-style: preserve-3d;
 `;
 
 const Title = styled.h1`
+  align-items: baseline;
   display: block;
   width: 100%;
-  font-size: 14vw;
-  line-height: 1;
+  font-size: 16vw;
+  line-height: 0.8;
   text-transform: uppercase;
-  text-align: left;
+  /* text-align: left; */
+  margin: 0;
   span {
-    font-size: 8vw;
+    font-size: 10vw;
   }
   @media (max-width: 767px) {
     text-align: center;
@@ -56,7 +60,6 @@ const Title = styled.h1`
 
 const Title2 = styled(Title)`
   white-space: nowrap;
-  overflow: hidden;
   @media (max-width: 767px) {
     white-space: normal;
   }
@@ -109,11 +112,11 @@ const Cover = () => {
       <Wrapper className="title">
         <Title>
           <MotionText ref={line1Ref}>
-            portfolio<span>&</span>
+            publisher<span>&</span>
           </MotionText>
         </Title>
         <Title2>
-          <MotionText ref={line2Ref}>web publisher</MotionText>
+          <MotionText ref={line2Ref}>front-end</MotionText>
         </Title2>
       </Wrapper>
     </Container>

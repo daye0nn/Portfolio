@@ -1,1 +1,1 @@
-# 2025 Web Publisher Portfolio_Choi DaYeon
+# 2025 Portfolio_Choi DaYeon
